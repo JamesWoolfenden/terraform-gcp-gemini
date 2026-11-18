@@ -40,6 +40,8 @@ No requirements.
 | Name | Version |
 | ---- | ------- |
 | <a name="provider_google"></a> [google](#provider\_google) | n/a |
+| <a name="provider_google-beta"></a> [google-beta](#provider\_google-beta) | n/a |
+| <a name="provider_time"></a> [time](#provider\_time) | n/a |
 
 ## Modules
 
@@ -49,6 +51,7 @@ No modules.
 
 | Name | Type |
 | ---- | ---- |
+| [google-beta_google_project_service_identity.gemini](https://registry.terraform.io/providers/hashicorp/google-beta/latest/docs/resources/google_project_service_identity) | resource |
 | [google_gemini_code_repository_index.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/gemini_code_repository_index) | resource |
 | [google_gemini_data_sharing_with_google_setting.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/gemini_data_sharing_with_google_setting) | resource |
 | [google_gemini_data_sharing_with_google_setting_binding.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/gemini_data_sharing_with_google_setting_binding) | resource |
@@ -58,6 +61,7 @@ No modules.
 | [google_gemini_release_channel_setting_binding.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/gemini_release_channel_setting_binding) | resource |
 | [google_gemini_repository_group.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/gemini_repository_group) | resource |
 | [google_kms_crypto_key_iam_member.gemini](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key_iam_member) | resource |
+| [time_sleep.iam_propagation](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
 | [google_project.current](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project) | data source |
 
 ## Inputs

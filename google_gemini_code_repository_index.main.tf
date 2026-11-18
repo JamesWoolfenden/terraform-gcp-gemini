@@ -7,5 +7,5 @@ resource "google_gemini_code_repository_index" "main" {
   force_destroy            = false
   labels                   = var.labels
 
-  depends_on = [google_kms_crypto_key_iam_member.gemini]
+  depends_on = [time_sleep.iam_propagation]
 }

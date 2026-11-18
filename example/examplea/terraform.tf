@@ -5,6 +5,14 @@ terraform {
       source  = "hashicorp/google"
       version = "7.31.0"
     }
+    google-beta = {
+      source  = "hashicorp/google-beta"
+      version = "7.31.0"
+    }
+    time = {
+      source  = "hashicorp/time"
+      version = "0.13.1"
+    }
   }
   required_version = ">= 1.9.0" # cross-variable validation (var.region referenced from var.kms_key_name's validation) requires 1.9+
 }

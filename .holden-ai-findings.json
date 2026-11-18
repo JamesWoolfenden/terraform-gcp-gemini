@@ -1,0 +1,53 @@
+{
+  "category": "all",
+  "findings": [
+    {
+      "confidence": "medium",
+      "explanation": "The module grants service-NUMBER@gcp-sa-cloudaicompanion on the key, but that service agent is created lazily (Google's CMEK instructions create it explicitly with 'services identity create'), so on a project without it the grant fails with 'service account does not exist'. When it does exist, the index is created as soon as the grant returns and IAM propagation lag can fail the CMEK index creation. Apply-time ordering issue (reliability is the closest principle).",
+      "file": "google_kms_crypto_key_iam_member.gemini.tf",
+      "first_seen": "2026-11-18",
+      "fixable": false,
+      "id": "HOLDEN_AI_001",
+      "last_seen": "2026-11-18",
+      "line": 1,
+      "principle": "reliability",
+      "related_resources": [
+        "google_gemini_code_repository_index.main"
+      ],
+      "remediation": "Create the agent with google_project_service_identity (cloudaicompanion.googleapis.com) and make the grant depend on it; gate the index on a time_sleep after the grant.",
+      "resource": "google_kms_crypto_key_iam_member.gemini",
+      "severity": "MEDIUM",
+      "status": "fixed",
+      "suppression_reason": null,
+      "title": "CMEK code repository index can fail on first apply: Gemini service agent may not exist and the key grant is not given time to propagate",
+      "unresolved_since": null
+    },
+    {
+      "confidence": "high",
+      "explanation": "A KMS key resource name is not secret (HLD_TF_050 exempts *_name), but sensitive = true redacts it in every plan. kms_key forces replacement of the code repository index (and its repository groups), so a key change shows as a destroy/create driven by '(sensitive value)'.",
+      "file": "variables.tf",
+      "first_seen": "2026-11-18",
+      "fix": "Delete the line `sensitive   = true` from variable \"kms_key_name\".",
+      "fixable": true,
+      "id": "HOLDEN_AI_002",
+      "last_seen": "2026-11-18",
+      "line": 23,
+      "principle": "maintainability",
+      "related_resources": [
+        "google_gemini_code_repository_index.main",
+        "google_kms_crypto_key_iam_member.gemini"
+      ],
+      "remediation": "Remove sensitive = true from variable.kms_key_name.",
+      "resource": "variable.kms_key_name",
+      "severity": "LOW",
+      "status": "fixed",
+      "suppression_reason": null,
+      "title": "kms_key_name marked sensitive hides a ForceNew index replacement in plan output",
+      "unresolved_since": null
+    }
+  ],
+  "scan_date": "2026-11-18T13:00:00Z",
+  "scan_path": ".",
+  "suggested_policies": [],
+  "suggested_suppressions": []
+}

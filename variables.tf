@@ -24,7 +24,6 @@ variable "kms_key_name" {
   type        = string
   description = "CMEK key used to encrypt the code repository index; must be in the same region as the index. Required when code_repository_index_id is set"
   default     = null
-  sensitive   = true
 
   validation {
     condition     = var.kms_key_name == null || length(trimspace(coalesce(var.kms_key_name, " "))) > 0
