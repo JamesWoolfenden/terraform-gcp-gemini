@@ -76,9 +76,9 @@ No modules.
 | <a name="input_logging_setting_id"></a> [logging\_setting\_id](#input\_logging\_setting\_id) | ID of the Gemini logging setting | `string` | `"gemini-logging"` | no |
 | <a name="input_region"></a> [region](#input\_region) | Region for the code repository index and repository groups (must be a Gemini Code Assist code customization region, e.g. us-central1 or europe-west1) | `string` | `"us-central1"` | no |
 | <a name="input_release_channel"></a> [release\_channel](#input\_release\_channel) | Release channel for Gemini features (STABLE or EXPERIMENTAL) | `string` | `"STABLE"` | no |
-| <a name="input_release_channel_products"></a> [release\_channel\_products](#input\_release\_channel\_products) | Gemini products the release channel setting is bound to | `list(string)` | `["GEMINI_CODE_ASSIST", "GEMINI_CLOUD_ASSIST"]` | no |
+| <a name="input_release_channel_products"></a> [release\_channel\_products](#input\_release\_channel\_products) | Gemini products the release channel setting is bound to | `list(string)` | <pre>[<br/>  "GEMINI_CODE_ASSIST",<br/>  "GEMINI_CLOUD_ASSIST"<br/>]</pre> | no |
 | <a name="input_release_channel_setting_id"></a> [release\_channel\_setting\_id](#input\_release\_channel\_setting\_id) | ID of the release channel setting | `string` | `"gemini-release-channel"` | no |
-| <a name="input_repository_groups"></a> [repository\_groups](#input\_repository\_groups) | Repository groups to index, keyed by repository group ID. Each repository is a Developer Connect git repository link (projects/P/locations/L/connections/C/gitRepositoryLinks/R) and an RE2 branch pattern. Ignored when no index is created | <pre>map(list(object({<br/>        resource       = string<br/>        branch\_pattern = string<br/>      })))</pre> | `{}` | no |
+| <a name="input_repository_groups"></a> [repository\_groups](#input\_repository\_groups) | Repository groups to index, keyed by repository group ID. Each repository is a Developer Connect git repository link (projects/P/locations/L/connections/C/gitRepositoryLinks/R) and an RE2 branch pattern. Ignored when no index is created | <pre>map(list(object({<br/>    resource       = string<br/>    branch_pattern = string<br/>  })))</pre> | `{}` | no |
 
 ## Outputs
 
